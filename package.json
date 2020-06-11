@@ -1,0 +1,17 @@
+{
+    "name": "@lounres/flex_node_fetch",
+    "version": "1.0.0",
+    "description": "Flexible implementations of browser fetch for Node.js",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lounres/flex_node_fetch.git"
+    },
+    "author": "Gleb Minaev",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lounres/flex_node_fetch/issues"
+    },
+    "homepage": "https://github.com/lounres/flex_node_fetch#readme",
+    "dependencies": {}
+}
