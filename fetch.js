@@ -1,5 +1,7 @@
-const https = require("https");
+"use strict"
+
 const http = require("http");
+const https = require("https");
 const querystring = require("querystring"); 
 
 module.exports.fetch =
