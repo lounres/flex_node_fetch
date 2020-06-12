@@ -1,6 +1,6 @@
 {
     "name": "@lounres/flex_node_fetch",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Flexible implementations of browser fetch for Node.js",
     "main": "index.js",
     "repository": {
