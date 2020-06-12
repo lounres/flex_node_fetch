@@ -13,7 +13,7 @@ class Fetcher {
         this.logJournal = [];
     }
 
-    #log = function (data, level) {
+    log (data, level) {
         level = level || "info";
         this.logJournal.push(data);
         if (this.config.writeLogs) {
@@ -21,9 +21,9 @@ class Fetcher {
         }
     }
 
-    #logRequest = function (request, data) {
+    logRequest (request, data) {
         let level = "info";
-        this.#log({
+        this.log({
             "event": {"type": "HTTP-request", "name": request},
             data,
             // "time": timeSync.getTime(), // TODO: Rewrite
@@ -31,9 +31,9 @@ class Fetcher {
         }, level);
     }
 
-    #logResponse = function (response, data) {
+    logResponse (response, data) {
         let level = "info";
-        this.#log({
+        this.log({
             "event": {"type": "HTTP-response", "name": response},
             data,
             // "time": timeSync.getTime(), // TODO: Rewrite
@@ -42,7 +42,7 @@ class Fetcher {
     }
 
     fetch (name, {path, method="GET", headers={}, data = null}) {
-        if (this.config.logs["HTTP-request"]) this.#logRequest(name, data);
+        if (this.config.logs["HTTP-request"]) this.logRequest(name, data);
 
         const options = {
             protocol: this.config.protocol,
@@ -78,13 +78,13 @@ class Fetcher {
         return new Promise((resolve, reject) => {
             const req = proto.request(options, res => {
                     res.setEncoding("utf8")
-                        .on("error", (err) => this.#log(err, "error"))
+                        .on("error", (err) => this.log(err, "error"))
                         .on("data", (data) => {
-                            if (this.config.logs["HTTP-response"]) this.#logResponse(name, data);
+                            if (this.config.logs["HTTP-response"]) this.logResponse(name, data);
                             resolve(data);
                         })
                 }
-            ).on("error", (err) => this.#log(err, "error"))
+            ).on("error", (err) => this.log(err, "error"))
 
             switch (method) {
                 case "POST":
