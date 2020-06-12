@@ -1,0 +1,15 @@
+{
+    "FetchDefaultConfig": {
+        "protocol": "http:",
+        "hostname": "localhost",
+        "path": "",
+        "port": 3005,
+        "writeLogs": false,
+        "logs": {
+            "HTTP-request": true,
+            "HTTP-response": true,
+            "Server-Socket": true,
+            "Client-Socket": true
+        }
+    }
+}

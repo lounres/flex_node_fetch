@@ -40,7 +40,7 @@ function fetch({path, method="GET", headers={}, data=null, hostname, protocol="h
     return new Promise((resolve, reject) => {
         const req = proto.request(options, res => {
                 res.setEncoding("utf8")
-                    .on("error", (err) => reject(e))
+                    .on("error", (err) => reject(err))
                     .on("data", (data) => {
                         resolve(data);
                     })
